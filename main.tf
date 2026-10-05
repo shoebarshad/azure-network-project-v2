@@ -41,6 +41,12 @@ resource "azurerm_subnet" "second" {
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
 }
+resource "azurerm_subnet" "third" {
+  name                 = "Project_subnet_3"
+  address_prefixes     = ["10.0.3.0/24"]
+  resource_group_name  = azurerm_resource_group.main.name
+  virtual_network_name = azurerm_virtual_network.main.name
+}
 
 resource "azurerm_network_security_group" "main" {
   location            = azurerm_resource_group.main.location
