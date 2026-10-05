@@ -14,3 +14,7 @@ variable "adminuser" {
   type = string
   default = "adminuser"
 }
+variable "vm_size" {
+  type    = string
+  default = "Standard_B2ls_v2"
+}
