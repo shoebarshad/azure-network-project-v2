@@ -14,3 +14,6 @@ output "second_subnet_id" {
 output "third_subnet_name" {
   value = azurerm_subnet.third.name
 }
+output "fourth_subnet_name" {
+  value = azurerm_subnet.fourth.name
+}
