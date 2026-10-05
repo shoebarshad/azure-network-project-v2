@@ -11,3 +11,6 @@ output "resource_group_name" {
 output "second_subnet_id" {
   value = azurerm_subnet.second.id
 }
+output "third_subnet_name" {
+  value = azurerm_subnet.third.name
+}
