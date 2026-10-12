@@ -20,6 +20,3 @@ output "fourth_subnet_name" {
 output "fourth_subnet_id" {
   value = azurerm_subnet.fourth.id
 }
-output "sixth_subnet_name" {
-  value = azurerm_subnet.sixth.name
-}
