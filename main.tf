@@ -36,28 +36,31 @@ resource "azurerm_subnet" "main" {
   virtual_network_name = azurerm_virtual_network.main.name
 }
 resource "azurerm_subnet" "second" {
-  name                 = "Project_subnet_2"
-  address_prefixes     = ["10.0.2.0/24"]
+  name                 = "second_subnet"
+  address_prefixes     = var.subnet_prefix
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
 }
+
 resource "azurerm_subnet" "third" {
-  name                 = "Project_subnet_3"
-  address_prefixes     = ["10.0.3.0/24"]
+  name                 = "third_subnet"
+  address_prefixes     = var.subnet_prefix
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
 }
 resource "azurerm_subnet" "fourth" {
-  name                 = "Project_subnet_4"
-  address_prefixes     = ["10.0.4.0/24"]
+  name                 = "fourth_subnet"
+  address_prefixes     = var.subnet_prefix
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
 }
+
 resource "azurerm_network_security_group" "main" {
   location            = azurerm_resource_group.main.location
   name                = "Project_NSG"
   resource_group_name = azurerm_resource_group.main.name
 }
+
 resource "azurerm_subnet_network_security_group_association" "main" {
   subnet_id                 = azurerm_subnet.main.id
   network_security_group_id = azurerm_network_security_group.main.id
