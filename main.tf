@@ -59,11 +59,18 @@ resource "azurerm_subnet" "fifth" {
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
 }
+resource "azurerm_subnet" "sixth" {
+  name                 = "Project_subnet_6"
+  address_prefixes     = ["10.0.6.0/24"]
+  resource_group_name  = azurerm_resource_group.main.name
+  virtual_network_name = azurerm_virtual_network.main.name
+}
 resource "azurerm_network_security_group" "main" {
   location            = azurerm_resource_group.main.location
   name                = "Project_NSG"
   resource_group_name = azurerm_resource_group.main.name
 }
+
 resource "azurerm_subnet_network_security_group_association" "main" {
   subnet_id                 = azurerm_subnet.main.id
   network_security_group_id = azurerm_network_security_group.main.id
