@@ -8,7 +8,9 @@ output "vnet_name" {
 output "resource_group_name" {
   value = azurerm_resource_group.main.name
 }
-
+output "second_subnet" {
+  value = azurerm_subnet.second.name
+}
 
 
 
