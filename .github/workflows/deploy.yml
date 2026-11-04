@@ -1,0 +1,31 @@
+name: Deploy to Azure Infrastructure
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  terraform-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: azure login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: setup terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: terraform init
+        run: terraform init
+
+      - name: terraform plan
+        run: terraform plan -out=tfplan
+
+      - name: terraform apply
+        run: terraform apply -auto-approve tfplan
