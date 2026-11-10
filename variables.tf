@@ -18,3 +18,7 @@ variable "vm_size" {
   type    = string
   default = "Standard_B2ls_v2"
 }
+variable "ssh_public_key" {
+  type        = string
+  description = "Public SSH key for the VM"
+}
